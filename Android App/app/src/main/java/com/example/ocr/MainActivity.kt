@@ -23,18 +23,8 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        if (! Python.isStarted()) {
-            Python.start(AndroidPlatform(this));
-        }
 
-        val py = Python.getInstance()
-        val pyobj: PyObject = py.getModule("android_pythontest")
-
-        val obj: PyObject ?= pyobj.callAttr("main")
-
-        Log.i("MainActivity",obj.toString())
-
-
+        
         click_id.setOnClickListener {
             takePhoto()
         }
@@ -119,6 +109,21 @@ class MainActivity : AppCompatActivity() {
             }
 
         }
+
+        if (! Python.isStarted()) {
+            Python.start(AndroidPlatform(this));
+        }
+
+        val py = Python.getInstance()
+        val pyobj: PyObject = py.getModule("android_pythontest")
+
+        val obj: PyObject ?= pyobj.callAttr("main",text_from_image.text)
+        Log.i("MainActivity",text_from_image.text.toString())
+
+        Log.i("MainActivity",obj.toString())
+
+
+
     }
 
 

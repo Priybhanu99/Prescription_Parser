@@ -27,12 +27,7 @@ class MainActivity : AppCompatActivity() {
             Python.start(AndroidPlatform(this));
         }
 
-        val py = Python.getInstance()
-        val pyobj: PyObject = py.getModule("android_pythontest")
 
-        val obj: PyObject ?= pyobj.callAttr("main")
-
-        Log.i("MainActivity",obj.toString())
 
 
         click_id.setOnClickListener {
@@ -119,6 +114,19 @@ class MainActivity : AppCompatActivity() {
             }
 
         }
+
+        val py = Python.getInstance()
+//        val pyobj: PyObject = py.getModule("code")
+//
+//        val obj: PyObject ?= pyobj.callAttr("prescription_parser",text_from_image.text.toString())
+
+
+        val pyobj: PyObject = py.getModule("android_pythontest")
+
+        val obj: PyObject ?= pyobj.callAttr("main")
+
+        Log.i("MainActivity",obj.toString())
+//        Log.i("MainActivity",text_from_image.toString())
     }
 
 

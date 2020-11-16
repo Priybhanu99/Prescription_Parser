@@ -121,9 +121,7 @@ class MainActivity : AppCompatActivity() {
         Log.i("MainActivity",text_from_image.text.toString())
 
         Log.i("MainActivity",obj.toString())
-
-
-
+        //just checking
     }
 
 

@@ -15,6 +15,7 @@ import com.chaquo.python.android.AndroidPlatform
 import com.google.firebase.ml.vision.FirebaseVision
 import com.google.firebase.ml.vision.common.FirebaseVisionImage
 import com.google.firebase.ml.vision.text.FirebaseVisionText
+import kotlinx.android.synthetic.main.activity_generate__text.*
 import kotlinx.android.synthetic.main.activity_main.*
 
 
@@ -77,8 +78,10 @@ class MainActivity : AppCompatActivity() {
 
             val imageUri: Uri? = data?.data
             val bitmap = MediaStore.Images.Media.getBitmap(this.contentResolver, imageUri)
-
+            Log.i("MainActivity","hello1")
             val firebaseVisionImage = FirebaseVisionImage.fromBitmap(bitmap)
+            Log.i("MainActivity","hello2")
+
             val firebaseVisionTextRecognizer= FirebaseVision.getInstance().onDeviceTextRecognizer
             firebaseVisionTextRecognizer.processImage(firebaseVisionImage).addOnSuccessListener(
             )
@@ -93,6 +96,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun processTextRecognition(text: FirebaseVisionText) {
 
+        Log.i("MainActivity","here")
         text_from_image.text = ""
         val textBlock: List<FirebaseVisionText.TextBlock> = text.textBlocks
         if (textBlock.isEmpty()) {

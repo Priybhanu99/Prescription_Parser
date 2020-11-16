@@ -29,26 +29,28 @@
         app:layout_constraintTop_toBottomOf="@+id/click_id" />
 
 
-
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="248dp"
         android:layout_height="257dp"
         android:layout_marginTop="28dp"
+        android:src="@mipmap/ic_launcher"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:src="@mipmap/ic_launcher" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/generate_text_bttn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="139dp"
-        android:layout_marginTop="107dp"
+        android:layout_marginTop="102dp"
+        android:background="@drawable/new_bttn"
         android:text="Generate Text"
         android:textStyle="bold"
+        android:textColor="#F1F8F7"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/upload_id" />
 

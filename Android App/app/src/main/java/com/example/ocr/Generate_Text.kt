@@ -11,6 +11,8 @@ class Generate_Text : AppCompatActivity() {
         setContentView(R.layout.activity_generate__text)
 
 
+        supportActionBar?.setTitle("Text from Image")
+
         parse_details_bttn.setOnClickListener{
             val intent = Intent(this,Parse_Details::class.java)
             startActivity(intent)

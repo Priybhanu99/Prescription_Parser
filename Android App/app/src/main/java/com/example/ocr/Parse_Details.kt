@@ -7,5 +7,7 @@ class Parse_Details : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_parse__details)
+
+        supportActionBar?.setTitle("Extracted Details")
     }
 }

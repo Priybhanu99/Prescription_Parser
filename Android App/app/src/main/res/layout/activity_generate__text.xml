@@ -8,8 +8,8 @@
 
     <ScrollView
         android:id="@+id/scrollView2"
-        android:layout_width="365dp"
-        android:layout_height="533dp"
+        android:layout_width="362dp"
+        android:layout_height="431dp"
         android:layout_marginStart="27dp"
         android:layout_marginTop="32dp"
         app:layout_constraintStart_toStartOf="parent"
@@ -24,14 +24,14 @@
                 android:id="@+id/text_from_image"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="18dp"
                 android:layout_weight="1"
-                android:text="No text found" />
+                android:text="No text found"
+                android:textSize="18dp" />
         </LinearLayout>
     </ScrollView>
 
     <Button
-        android:id="@+id/parse_details"
+        android:id="@+id/parse_details_bttn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="39dp"

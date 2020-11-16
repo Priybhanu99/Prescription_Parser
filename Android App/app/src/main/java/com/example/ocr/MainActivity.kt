@@ -34,6 +34,11 @@ class MainActivity : AppCompatActivity() {
         upload_id.setOnClickListener {
             selectImageInAlbum()
         }
+
+        generate_text_bttn.setOnClickListener{
+            val intent = Intent(this,Generate_Text::class.java)
+            startActivity(intent)
+        }
     }
 
     fun selectImageInAlbum() {

@@ -45,10 +45,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="102dp"
-        android:background="@drawable/new_bttn"
+        android:background="@drawable/new_bttn1"
         android:text="Generate Text"
         android:textStyle="bold"
         android:textColor="#F1F8F7"
+
+
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"

@@ -131,8 +131,8 @@ class MainActivity : AppCompatActivity() {
         val py = Python.getInstance()
         val pyobj: PyObject = py.getModule("android_pythontest")
 
-        val obj: PyObject ?= pyobj.callAttr("main",text_from_image.text)
-        Log.i("MainActivity",text_from_image.text.toString())
+        val obj: PyObject ?= pyobj.callAttr("main",text_image)
+        Log.i("MainActivity",text_image)
 
         Log.i("MainActivity",obj.toString())
         //just checking

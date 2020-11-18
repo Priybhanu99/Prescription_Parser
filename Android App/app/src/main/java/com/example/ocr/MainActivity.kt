@@ -118,7 +118,7 @@ class MainActivity : AppCompatActivity() {
                 val element: List<FirebaseVisionText.Element> = lines[j].elements
                 for (k in 0 until element.size) {
 //                    text_from_image.append(" " + element[k].text)
-                    text_image += (""+element[k].text)
+                    text_image += (" "+element[k].text)
                 }
             }
 
@@ -132,9 +132,21 @@ class MainActivity : AppCompatActivity() {
         val pyobj: PyObject = py.getModule("android_pythontest")
 
         val obj: PyObject ?= pyobj.callAttr("main",text_image)
-        Log.i("MainActivity",text_image)
+        val name: PyObject ?= pyobj.callAttr("getName")
+        val email: PyObject ?= pyobj.callAttr("getEmail")
+        val phone: PyObject ?= pyobj.callAttr("getPhone")
+        val price: PyObject ?= pyobj.callAttr("getPrice")
 
-        Log.i("MainActivity",obj.toString())
+
+//        val newcheez = obj?.toMap()
+
+        Log.i("MainActivity",text_image)
+        Log.i("MainActivity", name.toString())
+        Log.i("MainActivity", email.toString())
+        Log.i("MainActivity", phone.toString())
+        Log.i("MainActivity", price.toString())
+        
+//        Log.i("MainActivity", "bak" + newcheez?.get("price")?.toString())
         //just checking
     }
 

@@ -131,20 +131,21 @@ class MainActivity : AppCompatActivity() {
         val py = Python.getInstance()
         val pyobj: PyObject = py.getModule("android_pythontest")
 
+        Log.i("MainActivity",text_image)
         val obj: PyObject ?= pyobj.callAttr("main",text_image)
-        val name: PyObject ?= pyobj.callAttr("getName")
-        val email: PyObject ?= pyobj.callAttr("getEmail")
-        val phone: PyObject ?= pyobj.callAttr("getPhone")
-        val price: PyObject ?= pyobj.callAttr("getPrice")
+//        val name: PyObject ?= pyobj.callAttr("getName")
+//        val email: PyObject ?= pyobj.callAttr("getEmail")
+//        val phone: PyObject ?= pyobj.callAttr("getPhone")
+//        val price: PyObject ?= pyobj.callAttr("getPrice")
 
 
 //        val newcheez = obj?.toMap()
 
         Log.i("MainActivity",text_image)
-        Log.i("MainActivity", name.toString())
-        Log.i("MainActivity", email.toString())
-        Log.i("MainActivity", phone.toString())
-        Log.i("MainActivity", price.toString())
+//        Log.i("MainActivity", name.toString())
+//        Log.i("MainActivity", email.toString())
+//        Log.i("MainActivity", phone.toString())
+//        Log.i("MainActivity", price.toString())
         
 //        Log.i("MainActivity", "bak" + newcheez?.get("price")?.toString())
         //just checking

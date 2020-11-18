@@ -100,6 +100,10 @@ medicines = []
 patient_data = {}
 list_of_medicines = {}
 
+def get_medicines():
+    global medicines
+    return medicines
+
 def parse_medicines(text):
 
 	global medicines
@@ -114,7 +118,8 @@ def parse_medicines(text):
 
 
 	for id in medicines:
-		list_of_medicines[id]=med_data[id]
+	    if id in med_data:
+		    list_of_medicines[id]=med_data[id]
 	# print(list_of_medicines)
 
 	# total_bill = calculate_bill()

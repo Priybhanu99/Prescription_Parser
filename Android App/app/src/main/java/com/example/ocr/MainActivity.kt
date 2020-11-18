@@ -15,15 +15,18 @@ import com.chaquo.python.android.AndroidPlatform
 import com.google.firebase.ml.vision.FirebaseVision
 import com.google.firebase.ml.vision.common.FirebaseVisionImage
 import com.google.firebase.ml.vision.text.FirebaseVisionText
+import kotlinx.android.synthetic.main.activity_generate__text.*
 import kotlinx.android.synthetic.main.activity_main.*
 
 
 class MainActivity : AppCompatActivity() {
+
+    var text_image:String = ""
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-
+        supportActionBar?.setTitle("Prescription Parser")
         
         click_id.setOnClickListener {
             takePhoto()
@@ -32,6 +35,12 @@ class MainActivity : AppCompatActivity() {
 
         upload_id.setOnClickListener {
             selectImageInAlbum()
+        }
+
+        generate_text_bttn.setOnClickListener{
+            val intent = Intent(this,Generate_Text::class.java)
+            intent.putExtra("mykey",text_image)
+            startActivity(intent)
         }
     }
 
@@ -77,8 +86,10 @@ class MainActivity : AppCompatActivity() {
 
             val imageUri: Uri? = data?.data
             val bitmap = MediaStore.Images.Media.getBitmap(this.contentResolver, imageUri)
-
+            Log.i("MainActivity","hello1")
             val firebaseVisionImage = FirebaseVisionImage.fromBitmap(bitmap)
+            Log.i("MainActivity","hello2")
+
             val firebaseVisionTextRecognizer= FirebaseVision.getInstance().onDeviceTextRecognizer
             firebaseVisionTextRecognizer.processImage(firebaseVisionImage).addOnSuccessListener(
             )
@@ -93,10 +104,12 @@ class MainActivity : AppCompatActivity() {
 
     private fun processTextRecognition(text: FirebaseVisionText) {
 
-        text_from_image.text = ""
+        Log.i("MainActivity","here")
+//        text_from_image.text = ""
         val textBlock: List<FirebaseVisionText.TextBlock> = text.textBlocks
         if (textBlock.isEmpty()) {
-            text_from_image.text = "No Text found"
+//            text_from_image.text = "No Text found"
+            text_image = "No text found"
             return
         }
         for (index in 0 until textBlock.size) {
@@ -104,7 +117,8 @@ class MainActivity : AppCompatActivity() {
             for (j in 0 until lines.size) {
                 val element: List<FirebaseVisionText.Element> = lines[j].elements
                 for (k in 0 until element.size) {
-                    text_from_image.append(" " + element[k].text)
+//                    text_from_image.append(" " + element[k].text)
+                    text_image += (""+element[k].text)
                 }
             }
 
@@ -117,8 +131,8 @@ class MainActivity : AppCompatActivity() {
         val py = Python.getInstance()
         val pyobj: PyObject = py.getModule("android_pythontest")
 
-        val obj: PyObject ?= pyobj.callAttr("main",text_from_image.text)
-        Log.i("MainActivity",text_from_image.text.toString())
+        val obj: PyObject ?= pyobj.callAttr("main",text_image)
+        Log.i("MainActivity",text_image)
 
         Log.i("MainActivity",obj.toString())
         //just checking

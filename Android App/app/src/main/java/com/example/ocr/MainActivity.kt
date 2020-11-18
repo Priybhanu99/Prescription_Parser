@@ -20,6 +20,8 @@ import kotlinx.android.synthetic.main.activity_main.*
 
 
 class MainActivity : AppCompatActivity() {
+
+    var text_image:String = ""
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -37,6 +39,7 @@ class MainActivity : AppCompatActivity() {
 
         generate_text_bttn.setOnClickListener{
             val intent = Intent(this,Generate_Text::class.java)
+            intent.putExtra("mykey",text_image)
             startActivity(intent)
         }
     }
@@ -102,10 +105,11 @@ class MainActivity : AppCompatActivity() {
     private fun processTextRecognition(text: FirebaseVisionText) {
 
         Log.i("MainActivity","here")
-        text_from_image.text = ""
+//        text_from_image.text = ""
         val textBlock: List<FirebaseVisionText.TextBlock> = text.textBlocks
         if (textBlock.isEmpty()) {
-            text_from_image.text = "No Text found"
+//            text_from_image.text = "No Text found"
+            text_image = "No text found"
             return
         }
         for (index in 0 until textBlock.size) {
@@ -113,7 +117,8 @@ class MainActivity : AppCompatActivity() {
             for (j in 0 until lines.size) {
                 val element: List<FirebaseVisionText.Element> = lines[j].elements
                 for (k in 0 until element.size) {
-                    text_from_image.append(" " + element[k].text)
+//                    text_from_image.append(" " + element[k].text)
+                    text_image += (""+element[k].text)
                 }
             }
 

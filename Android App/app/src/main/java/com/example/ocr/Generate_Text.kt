@@ -13,8 +13,8 @@ class Generate_Text : AppCompatActivity() {
 
         supportActionBar?.setTitle("Text from Image")
 
-        val ss:String = intent.getStringExtra("mykey")
-        text_from_image.text = ss
+        val data:String = intent.getStringExtra("mykey")
+        text_from_image.text = data
 
         parse_details_bttn.setOnClickListener{
             val intent = Intent(this,Parse_Details::class.java)

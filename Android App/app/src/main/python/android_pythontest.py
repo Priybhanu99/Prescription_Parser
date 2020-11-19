@@ -100,6 +100,13 @@ medicines = []
 patient_data = {}
 list_of_medicines = {}
 
+def get_medicines():
+    global medicines
+    temp = ""
+    for x in medicines:
+        temp = temp + str(x) + " "
+    return temp
+
 def parse_medicines(text):
 
 	global medicines
@@ -114,7 +121,8 @@ def parse_medicines(text):
 
 
 	for id in medicines:
-		list_of_medicines[id]=med_data[id]
+	    if id in med_data:
+		    list_of_medicines[id]=med_data[id]
 	# print(list_of_medicines)
 
 	# total_bill = calculate_bill()
@@ -146,6 +154,31 @@ def getPrice() :
 	return  patient_data["Price"]
 
 
+def print_medicinedetails(id):
+    global list_of_medicines
+    if id in list_of_medicines:
+        return "true"
+    else:
+        return "false"
+
+def get_med_name(id):
+    global list_of_medicines
+    return list_of_medicines[id]["generic_name"]
+
+def get_med_description(id):
+    global list_of_medicines
+    return list_of_medicines[id]["description"]
+
+def get_med_sideeffects(id):
+    global list_of_medicines
+    return list_of_medicines[id]["side_effects"]
+
+
+def get_med_price(id):
+    global list_of_medicines
+    return list_of_medicines[id]["price"]
+
+
 def prescription_parser(final_text):
 
 	global medicines
@@ -169,6 +202,10 @@ def prescription_parser(final_text):
 	# print(prescription_text)
 	# print(final_text)
 	return patient_data
+
+def get_bill():
+    global patient_data
+    return patient_data["Price"]
 
 def main(text_from_image):
 

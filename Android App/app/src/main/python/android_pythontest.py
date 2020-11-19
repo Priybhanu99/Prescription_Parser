@@ -151,6 +151,13 @@ def getPrice() :
 	return  patient_data["Price"]
 
 
+def print_medicinedetails(id):
+    global list_of_medicines
+    if id in list_of_medicines:
+        return list_of_medicines[id]
+
+
+
 def prescription_parser(final_text):
 
 	global medicines

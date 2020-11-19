@@ -1,5 +1,6 @@
 package com.example.ocr
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -29,6 +30,7 @@ class Parse_Details : AppCompatActivity() {
         val email_1: PyObject ?= pyobj.callAttr("getEmail")
         val phone_1: PyObject ?= pyobj.callAttr("getPhone")
         val price_1: PyObject ?= pyobj.callAttr("getPrice")
+
         val medicine_1:PyObject ?= pyobj.callAttr("get_medicines")
 
         val name:TextView = findViewById(R.id.name)
@@ -49,7 +51,10 @@ class Parse_Details : AppCompatActivity() {
         email.text = email_1.toString()
         phone.text = phone_1.toString()
 
-
+        medicinesinfo_id.setOnClickListener{
+            val intent = Intent(this,Medicines_Details::class.java)
+            startActivity(intent)
+        }
 
     }
 }

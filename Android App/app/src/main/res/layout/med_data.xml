@@ -1,23 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:paddingBottom="20dp"
+    android:paddingBottom="24dp"
     android:orientation="vertical">
 
 
     <androidx.cardview.widget.CardView
-        android:layout_width="388dp"
+        android:layout_width="373dp"
         android:layout_height="wrap_content"
+        android:layout_marginStart="22dp"
+
+        android:layout_marginTop="22dp"
+        android:layout_marginEnd="35dp"
         app:cardBackgroundColor="#69B6F2"
-        >
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            android:paddingBottom="10dp"
+            app:layout_constraintStart_toStartOf="parent">
 
             <TextView
                 android:id="@+id/med_description"
@@ -34,9 +44,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
-                android:layout_marginTop="16dp"
+                android:layout_marginTop="18dp"
                 android:text="Name:"
                 android:textSize="24dp"
+                android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -48,6 +59,7 @@
                 android:layout_marginTop="11dp"
                 android:text="Description: "
                 android:textSize="24dp"
+                android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/name_data" />
 
@@ -59,6 +71,7 @@
                 android:layout_marginTop="16dp"
                 android:text="Side Effects"
                 android:textSize="24dp"
+                android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/med_description" />
 
@@ -70,14 +83,15 @@
                 android:layout_marginTop="12dp"
                 android:text="Price"
                 android:textSize="24dp"
+                android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/med_sideeffects" />
 
             <TextView
                 android:id="@+id/med_name"
-                android:layout_width="257dp"
-                android:layout_height="28dp"
-                android:layout_marginStart="10dp"
+                android:layout_width="209dp"
+                android:layout_height="30dp"
+                android:layout_marginStart="56dp"
                 android:layout_marginTop="20dp"
                 android:text=""
                 android:textSize="24dp"
@@ -112,4 +126,4 @@
     </androidx.cardview.widget.CardView>
 
 
-</LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

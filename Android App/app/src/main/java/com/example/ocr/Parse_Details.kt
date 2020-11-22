@@ -58,9 +58,11 @@ class Parse_Details : AppCompatActivity() {
         }
 
         bill_bttn.setOnClickListener{
-            val price_1: PyObject ?= pyobj.callAttr("get_bill")
-            Toast.makeText(this,price_1.toString(),Toast.LENGTH_SHORT).show()
-            Log.i("parse_details",price_1.toString())
+//            val price_1: PyObject ?= pyobj.callAttr("get_bill")
+//            Toast.makeText(this,price_1.toString(),Toast.LENGTH_SHORT).show()
+//            Log.i("parse_details",price_1.toString())
+            val intent = Intent(this,Generate_Bill::class.java)
+            startActivity(intent)
         }
 
     }

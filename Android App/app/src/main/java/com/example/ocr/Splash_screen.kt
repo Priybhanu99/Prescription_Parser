@@ -20,6 +20,6 @@ class Splash_screen : AppCompatActivity() {
 
             // close this activity
             finish()
-        }, 2000)
+        }, 4000)
     }
 }
